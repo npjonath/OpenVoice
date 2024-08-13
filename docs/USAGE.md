@@ -4,8 +4,9 @@
 
 - [Quick Use](#quick-use): directly use OpenVoice without installation.
 - [Linux Install](#linux-install): for researchers and developers only.
-    - [V1](#openvoice-v1)
-    - [V2](#openvoice-v2)
+  - [V1](#openvoice-v1)
+  - [V2](#openvoice-v2)
+- [Docker](#docker): for researchers and developers only.
 - [Install on Other Platforms](#install-on-other-platforms): unofficial installation guide contributed by the community
 
 ## Quick Use
@@ -46,6 +47,21 @@ pip install -e .
 
 No matter if you are using V1 or V2, the above installation is the same.
 
+## Docker Install (tested on MacOS)
+
+The following step will setup a jupyter notebook server with OpenVoice pre-installed:
+
+1. Install Docker Desktop on your MacOS.
+2. Download and extract checkpoints as explained in the section below. [V1](#openvoice-v1) or [V2](#openvoice-v2)
+3. Run the following command to start a jupyter notebook server:
+
+```
+docker build -t myshell-openvoice .
+docker run -p 8888:8888 myshell-openvoice
+```
+
+4. Open your browser and go to `http://localhost:8888`. You should see a jupyter notebook server.
+
 ### OpenVoice V1
 
 Download the checkpoint from [here](https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_1226.zip) and extract it to the `checkpoints` folder.
@@ -63,13 +79,13 @@ Please see [`demo_part2.ipynb`](../demo_part2.ipynb) for an example for language
 Download the checkpoint from [here](https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip) and extract it to the `checkpoints_v2` folder.
 
 Install [MeloTTS](https://github.com/myshell-ai/MeloTTS):
+
 ```
 pip install git+https://github.com/myshell-ai/MeloTTS.git
 python -m unidic download
 ```
 
 **Demo Usage.** Please see [`demo_part3.ipynb`](../demo_part3.ipynb) for example usage of OpenVoice V2. Now it natively supports English, Spanish, French, Chinese, Japanese and Korean.
-
 
 ## Install on Other Platforms
 
